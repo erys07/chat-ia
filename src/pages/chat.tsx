@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Send, Sparkles, Moon } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
 
 type Message = {
   id: number;
@@ -75,7 +76,7 @@ export default function Chat() {
   return (
     <div className={`flex flex-col h-screen ${isThinking ? 'bg-blue-900' : 'bg-blue-50'} transition-colors duration-500`}>
       <header className="bg-blue-600 text-white p-4 flex justify-between items-center">
-        <h1 className="text-xl font-bold">DANDAR.AI</h1>
+        <h1 className="text-xl font-bold">DANDARA.AI</h1>
         <Sparkles className="w-6 h-6" />
       </header>
 
@@ -87,7 +88,7 @@ export default function Chat() {
               message.sender === 'user' ? 'bg-blue-200 ml-auto' : 'bg-white mr-auto'
             }`}
           >
-            {message.content}
+            <ReactMarkdown>{message.content}</ReactMarkdown>
           </div>
         ))}
         <div ref={messagesEndRef} />
